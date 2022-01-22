@@ -25,19 +25,20 @@ const Rating = (props) => {
           );
         })
       }
-    <TriButton onClick={() => {navigate(`/Review/${days}`)}} />
+      <TriButton onClick={() => {navigate(`/Review/${days}`)}} />
     </RankWrap>
   );
 };
 
 const RankWrap = styled.div`
+  margin: 1rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const DayTitle = styled.p`
-  margin-right: 0.5rem;
+  margin: 0px 0.5rem 0px 0px;
   font-weight: bold;
 `;
 
