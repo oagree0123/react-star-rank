@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Rating = (props) => {
-  let days = props.day;
-  let rank =  Math.floor(Math.random(0) * 5) + 1;
+  const days = props.day;
+  const rank =  Math.floor(Math.random(0) * 5) + 1;
+  const navigate = useNavigate();
 
   console.log(days, rank)
   return (
@@ -23,7 +25,7 @@ const Rating = (props) => {
           );
         })
       }
-      <TriButton />
+    <TriButton onClick={() => {navigate(`/Review/${days}`)}} />
     </RankWrap>
   );
 };
@@ -45,15 +47,7 @@ const RankCircle = styled.div`
   height: 30px;
   background-color: rgb(221, 221, 221);
   border-radius: 30px;
-`
-
-const NoRankCircle = styled.div`
-  margin: 5px;
-  width: 30px;
-  height: 30px;
-  background-color: rgb(221, 221, 221);
-  border-radius: 30px;
-`
+`;
 
 const TriButton = styled.div`
   appearance: none;

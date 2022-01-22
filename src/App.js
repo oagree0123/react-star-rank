@@ -1,26 +1,18 @@
 import React from 'react';
-import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 
-import './App.css';
-import Rating from './Rating';
+import Home from './Home';
+import Review from './Review';
 
 function App() {
-  const [dayList, setDayList] = useState([
-    "월", "화", "수", "목", "금", "토", "일"
-  ]);
-
   return (
     <AppWrap className="App">
       <Container>
-      <MainTitle>내 일주일은?</MainTitle>
-      {
-        dayList.map((day, index) => {
-          return (
-            <Rating key={index} day={day} />
-          );
-        })
-      }
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/review/:click_day" element={<Review />} />
+      </Routes>
       </Container>
     </AppWrap>
   );
@@ -28,10 +20,6 @@ function App() {
 
 const AppWrap = styled.div`
   text-align: center;
-`;
-
-const MainTitle = styled.h3`
-  
 `;
 
 const Container = styled.div`
