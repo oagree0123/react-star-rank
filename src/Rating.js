@@ -7,7 +7,6 @@ const Rating = (props) => {
   const rank =  Math.floor(Math.random(0) * 5) + 1;
   const navigate = useNavigate();
 
-  console.log(days, rank)
   return (
     <RankWrap>
       <DayTitle>{days}</DayTitle>

@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 
 import styled from "styled-components";
 
@@ -7,20 +6,24 @@ import Rating from "./Rating";
 
 const Home = () => {
   const dayList = [
+    "일",
     "월",
     "화",
     "수",
     "목",
     "금",
-    "토",
-    "일",
+    "토" 
   ];
+
+  const dt = new Date();
+  const today = dt.getDay();
 
   return (
     <Container>
       <MainTitle>내 일주일은?</MainTitle>
       {dayList.map((day, index) => {
-        return <Rating key={index} day={day} />;
+        let dayIndex = (today + index) % 7;
+        return <Rating key={index} day={dayList[dayIndex]} />;
       })}
     </Container>
   );
