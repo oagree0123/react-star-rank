@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -9,11 +9,26 @@ const Review = (props) => {
   const navigate = useNavigate();
 
   const changeRank = (clickRank) => {
-    console.log(clickRank);
     setStarRank(clickRank + 1);
   }
 
-  console.log(today.click_day);
+  const useKeyPress = e => {
+    if(e.key >= 1 && e.key <= 5){
+      setStarRank(e.key)
+    }
+    else {
+      alert("1부터 5까지의 숫자만 입력해 주세요!")
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("keypress", useKeyPress);
+    // Remove event listeners on cleanup
+    return () => {
+      //window.removeEventListener("keypress", useKeyPress);
+    };
+  }, []);
+
   return (
     <ReviewWrap>
       <ReviewTitle>
