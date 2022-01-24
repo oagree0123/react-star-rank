@@ -25,7 +25,7 @@ const Review = (props) => {
     window.addEventListener("keypress", useKeyPress);
     // Remove event listeners on cleanup
     return () => {
-      //window.removeEventListener("keypress", useKeyPress);
+      window.removeEventListener("keypress", useKeyPress);
     };
   }, []);
 
