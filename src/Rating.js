@@ -10,8 +10,7 @@ const Rating = (props) => {
   return (
     <RankWrap>
       <DayTitle>{days}</DayTitle>
-      <RankNum>{rank}</RankNum>
-      {/* {
+      {
         [...Array(5)].map((star, index) => {
           console.log(rank)
           return(
@@ -25,7 +24,8 @@ const Rating = (props) => {
             
           );
         })
-      } */}
+      }
+      <RankNum>{rank}</RankNum>
       <TriButton onClick={() => {navigate(`/Review/${days}`)}} />
     </RankWrap>
   );
@@ -45,7 +45,8 @@ const DayTitle = styled.p`
 
 const RankNum = styled.h1`
   margin: 0;
-  padding: 0 3em;
+  padding: 0 0.5rem;
+  text-align: center;
 `;
 
 const RankCircle = styled.div`
