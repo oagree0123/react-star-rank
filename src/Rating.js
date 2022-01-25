@@ -13,19 +13,31 @@ const Rating = (props) => {
       {
         [...Array(5)].map((star, index) => {
           console.log(rank)
-          return(
-            (index < rank) ?
-            <RankCircle 
-              className={rank}
-              key={index} 
-              style={{backgroundColor: "rgb(255, 235, 59)"}}
-            /> :
-            <RankCircle className={rank} key={index} />
-            
-          );
+          if(index !== 4) {
+            return(
+              (index < rank) ?
+              <RankCircle 
+                className={rank}
+                key={index} 
+                style={{backgroundColor: "rgb(255, 235, 59)"}}
+              /> :
+              <RankCircle className={rank} key={index} />
+              
+            );
+          } else {
+            return(
+              (index < rank) ?
+              <RankCircle 
+                className={rank}
+                key={index} 
+                style={{backgroundColor: "rgb(255, 235, 59)"}}
+              > {rank} </RankCircle>:
+              <RankCircle className={rank} key={index}> {rank} </RankCircle>
+            );
+          }
         })
       }
-      <RankNum>{rank}</RankNum>
+      {/* <RankNum>{rank}</RankNum> */}
       <TriButton onClick={() => {navigate(`/Review/${days}`)}} />
     </RankWrap>
   );
@@ -51,10 +63,16 @@ const RankNum = styled.h1`
 
 const RankCircle = styled.div`
   margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 30px;
   height: 30px;
   background-color: rgb(221, 221, 221);
   border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
 `;
 
 const TriButton = styled.div`
